@@ -6,6 +6,11 @@
         <entry key="..\:/MyLearning/Weather-Navin/app/src/main/res/layout/activity_main.xml" value="0.3302083333333333" />
         <entry key="..\:/MyLearning/Weather-Navin/app/src/main/res/layout/activity_weather.xml" value="0.1" />
         <entry key="..\:/MyLearning/Weather-Navin/app/src/main/res/layout/error_view.xml" value="0.3302083333333333" />
+        <entry key="..\:/MyLearning/Weather-Navin/app/src/main/res/layout/fragment_weather.xml" value="0.3302083333333333" />
+        <entry key="..\:/MyLearning/Weather-Navin/app/src/main/res/layout/view_daily_weather_report.xml" value="0.3302083333333333" />
+        <entry key="..\:/MyLearning/Weather-Navin/app/src/main/res/layout/view_list_item.xml" value="0.3302083333333333" />
+        <entry key="..\:/MyLearning/Weather-Navin/app/src/main/res/layout/view_weather_header_item.xml" value="0.3302083333333333" />
+        <entry key="..\:/MyLearning/Weather-Navin/app/src/main/res/layout/view_weather_more_item.xml" value="0.3302083333333333" />
       </map>
     </option>
   </component>
