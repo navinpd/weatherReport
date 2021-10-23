@@ -8,11 +8,9 @@ android {
 }
 
 dependencies {
-
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "androidx.core:core-ktx:$coreKtxVersion"
     implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
-    implementation("androidx.lifecycle:lifecycle-extensions:$androidxLifecycle")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$androidxLifecycle")
     implementation "com.google.dagger:dagger-android:$daggerVersion"
 
