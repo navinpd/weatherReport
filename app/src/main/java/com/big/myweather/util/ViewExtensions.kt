@@ -13,7 +13,11 @@ import androidx.viewbinding.ViewBinding
 
 fun Fragment.bind(activity: AppCompatActivity, @IdRes containerId: Int) {
     activity.supportFragmentManager.beginTransaction()
-        .replace(containerId, this, this.javaClass.name)
+        .replace(
+            containerId,
+            this,
+            this.javaClass.name
+        )
         .commitAllowingStateLoss()
 }
 

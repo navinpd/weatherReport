@@ -15,6 +15,7 @@ import com.big.myapplication.commons.observe
 import com.big.myapplication.commons.withViewModel
 import com.big.myweather.R
 import com.big.myweather.databinding.FragmentWeatherBinding
+import com.big.myweather.di.WeatherApp
 import com.big.myweather.domain.model.Location
 import com.big.myweather.presentation.model.WeatherBaseUiModel
 import com.big.myweather.presentation.ui.adapter.WeatherAdapter
@@ -24,18 +25,16 @@ import com.big.myweather.util.LocationPermissionChecker
 import com.big.myweather.util.MarginItemDecoration
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
 import io.reactivex.internal.functions.Functions
 import javax.inject.Inject
 
-internal class WeatherFragment : BaseFragment<FragmentWeatherBinding>(R.layout.fragment_weather),
-    HasAndroidInjector {
+internal class WeatherFragment : BaseFragment<FragmentWeatherBinding>(R.layout.fragment_weather), HasAndroidInjector {
 
     companion object {
         @JvmStatic
-        fun newInstance() = WeatherFragment
+        fun newInstance() = WeatherFragment()
 
         private const val LOCATION_PERMISSION_REQUEST_CODE = 101
     }
@@ -51,11 +50,19 @@ internal class WeatherFragment : BaseFragment<FragmentWeatherBinding>(R.layout.f
     lateinit var viewModelFactory: ViewModelFactory
     private val viewModel by lazy {
         withViewModel<WeatherViewModel>(viewModelFactory) {
-
+            observeWeatherReportViewState()
+            observeWeatherViewState()
         }
     }
 
-    private fun WeatherViewModel.observerWeatherReportViewState() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        WeatherApp.inject(this)
+        super.onCreate(savedInstanceState)
+    }
+
+
+
+    private fun WeatherViewModel.observeWeatherReportViewState() {
         observe(weatherReportViewState) {
             updateRecyclerView(it)
         }

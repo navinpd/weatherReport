@@ -35,14 +35,13 @@ open class ViewModelFactory @Inject constructor(
                 }
             }
         }
-        if (creator == null)
+        if (creator == null) {
             throw IllegalStateException("Unknown model class: $modelClass")
-
+        }
         try {
             return creator.get() as T
         } catch (e: Exception) {
             throw RuntimeException(e)
         }
     }
-
 }
