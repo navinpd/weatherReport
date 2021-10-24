@@ -7,9 +7,9 @@ import android.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
 import javax.inject.Inject
 
-class LocationPermissionChecker @Inject constructor(val context: Application) {
+internal object LocationPermissionChecker {
 
-    fun isLocationPermissionGranted(): Boolean {
+    fun isLocationPermissionGranted(context: Context): Boolean {
         if (ActivityCompat.checkSelfPermission(
                 context, Manifest.permission.ACCESS_FINE_LOCATION
             ) == PackageManager.PERMISSION_GRANTED
